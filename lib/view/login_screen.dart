@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:spotify/view/signin_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -82,7 +83,10 @@ class LoginScreen extends StatelessWidget {
                   alignment: Alignment.center, child: Text('Facebook으로 계속하기')),
             ),
             ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(builder: (_) => SigninScreen()), (route) => false);
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.transparent,
                   shape: const StadiumBorder(),
